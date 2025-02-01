@@ -1,0 +1,34 @@
+---
+import Post from '../../layouts/Post.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const coverimg = post.data.coverImage > "" ? "" : "hidden";
+---
+<Post>
+  <article un-prose prose-truegray dark:prose-invert>
+    <div class={coverimg}>
+      <img src={post.data.coverImage} alt={post.data.title} class="w-full mx-auto pb-3 aspect-video object-cover" />
+    </div>
+    <h1 text-3xl>{post.data.title}</h1>
+    <p class="text-[15px]">{post.data.abstract}</p>
+    <div class="py-3 border-t-2 inline-flex gap-1 items-center">
+        
+          <div class="i-stash:data-date-duotone w-24px h-24px"></div>
+          {(post.data.date).toDateString().replace(/^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) /, '')}
+        <div class="w-3"></div>
+          <div class="i-hugeicons:quill-write-02 w-18px h-18px"></div>
+          {post.data.author}
+        
+    </div>
+    <Content />
+  </article>
+
+</Post>

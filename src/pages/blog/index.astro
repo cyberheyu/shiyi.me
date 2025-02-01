@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+const Posts = (await getCollection('blog' ,  ({ data }) => {
+  return data.isDraft !== true;
+})).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+---
+<Layout>
+    <div pt-24 pb-12>
+        <h1 text-2xl font-bold  py-2 class="text-[#202020] dark:text-[#EEEEEE]">浮生六记</h1>
+        <p text-lg>闲情记趣 · 坎坷记愁 · 浪游记快 · 工作记历 · 闺房记乐 · 养生记道</p>
+    </div>
+	<ul class="prose flex flex-col gap-5">
+        {
+          Posts.map((post) => (
+            <li>
+              <a no-underline hover:text-purple
+                href={`/blog/${post.id}`}
+              >
+                <div class="flex flex-col gap-1 md:flex-row md:items-end md:gap-2" >
+                  <span>
+                    {post.data.title}
+                  </span>
+                  <span text-sm>
+                      {(post.data.date).toDateString().replace(/^(Sun|Mon|Tue|Wed|Thu|Fri|Sat) /, '')}
+                  </span>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+    </ul>
+</Layout>

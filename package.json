@@ -1,0 +1,22 @@
+{
+  "name": "shiyi",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.11",
+    "astro": "^5.2.3"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.297",
+    "@unocss/reset": "^65.4.2",
+    "markdown-it": "^14.1.0",
+    "sanitize-html": "^2.14.0",
+    "unocss": "^65.4.2"
+  }
+}

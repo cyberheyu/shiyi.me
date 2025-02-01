@@ -1,0 +1,24 @@
+---
+import Head from "../components/Head.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+---
+<!doctype html>
+<html lang="zh">
+	<Head>
+	</Head>
+	<body class="bg-[#F5F5F5] text-[#646464] dark:bg-[#1d1e20] dark:text-[#B4B4B4]" >
+		<Header />
+		<div max-w-3xl m-a px-6>
+			<slot />
+			<div py-10 w-fit>
+            	<a un-flex gap-2 href="/blog"><div class="i-line-md:chevron-left-square-twotone w-24px h-24px"></div>
+                	<span>目录</span></a>
+        	</div>
+		</div>
+        
+        
+		<Footer />
+	</body>
+</html>
+

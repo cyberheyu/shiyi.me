@@ -1,0 +1,9 @@
+---
+const { photoUrl , photoName , photoWhere , photoId , photoWhen } = Astro.props
+---
+
+<div id={photoId} p-5 mb-5 un-flex flex-col un-rounded-lg items-center class="bg-[#FCFCFC] dark:bg-[#111111]">
+    <img w-full h-auto src={photoUrl} alt={photoName} loading="lazy">
+    <p pt-5 text-sm>{photoWhere}</p>
+    <p pt-2 text-lg class="text-[#202020] dark:text-[#EEEEEE]">{photoName}</p>
+</div>

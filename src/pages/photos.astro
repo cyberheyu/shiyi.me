@@ -1,0 +1,17 @@
+---
+import Photo from '../components/Photo.astro';
+import Layout from '../layouts/Layout.astro';
+import photos from '../data/photos/photos.json';
+---
+
+<Layout>
+    <div pt-24 pb-12 un-flex flex-col break-words>
+        <h1 text-2xl font-bold  py-2 class="text-[#202020] dark:text-[#EEEEEE]">影集</h1>
+        <p text-lg>摄影以寄情</p>
+    </div>
+    <div class="gallery">
+        {photos.map(photo => (
+          <Photo photoUrl={photo.url} photoName={photo.name} photoWhere={photo.where} photoId={photo.id} photoWhen={photo.when} />
+        ))}
+    </div>
+</Layout>
