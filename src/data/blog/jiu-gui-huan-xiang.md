@@ -2,13 +2,13 @@
 isDraft: false
 isFeatured: false
 title: 旧轨还乡
-abstract: 
+abstract: ""
 date: 2025-3-26
 author: 和豫
 tags:
   - 文摘
   - 乡愁
-coverImage:
+coverImage: ""
 ---
 
 > 一篇寒假作文，写的很好，分享给诸君。
